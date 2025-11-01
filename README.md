@@ -1,73 +1,118 @@
-# Welcome to your Lovable project
+Smart Voyage: Your AI-Powered Travel Planner
 
-## Project info
+Smart Voyage is a modern, AI-driven web application designed to take the stress and guesswork out of travel planning. It leverages the power of generative AI (Google Gemini) to create personalized, detailed itineraries, and even tells you what to pack based on the weather at your destination.
 
-**URL**: https://lovable.dev/projects/6df48f83-9679-4b3a-9100-22ae918ea39c
+✨ Key Features
 
-## How can I edit this code?
+AI-Powered Itinerary Generation: Get a complete, day-by-day travel plan. Just provide a destination, dates, and number of travelers, and let the AI build your vacation.
 
-There are several ways of editing your application.
+"Surprise Me!" Journey: Feeling adventurous? Let the AI pick a destination for you and generate a full itinerary for a true surprise trip.
 
-**Use Lovable**
+Dynamic Luggage Checklist: A standout feature. The AI analyzes your destination and travel dates, determines the expected weather and climate, and generates a customized packing list.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/6df48f83-9679-4b3a-9100-22ae918ea39c) and start prompting.
+Interactive Map Integration: Your generated itinerary is automatically displayed on an interactive map (via Leaflet.js & OpenStreetMap), showing your destination and key points of interest.
 
-Changes made via Lovable will be committed automatically to this repo.
+Dynamic Traveler Forms: Easily add multiple travelers to a trip. The form dynamically updates to capture each person's Name and Age for a more personalized plan.
 
-**Use your preferred IDE**
+Full User Authentication: Secure login, signup, and a "Complete Your Profile" flow on first login (capturing Name, DOB, Gender, Nationality, and Preferred Language).
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+Multilingual Support: A globally accessible app. The entire site can be translated in real-time using the Google Translate API (implemented securely via a backend endpoint).
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+FAQ Page: A clean, organized section to answer common user questions.
 
-Follow these steps:
+🚀 Tech Stack
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+This project integrates a modern set of technologies for a seamless experience:
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+Frontend: HTML5, CSS3, Vanilla JavaScript (ES6+)
 
-# Step 3: Install the necessary dependencies.
-npm i
+AI Model: Google Gemini (via the Gemini API)
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+Mapping: Leaflet.js & OpenStreetMap (Free, no API key required)
 
-**Edit a file directly in GitHub**
+Translation: Google Cloud Translation API
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+Backend: Node.js / Express.js (To handle secure API calls to Gemini and Google Translate)
 
-**Use GitHub Codespaces**
+Database: (Example) MongoDB or PostgreSQL for storing user profiles and saved itineraries.
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+🏁 Getting Started
 
-## What technologies are used for this project?
+To get a local copy up and running, follow these simple steps.
 
-This project is built with:
+Prerequisites
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+Node.js (for the backend server)
 
-## How can I deploy this project?
+API keys for:
 
-Simply open [Lovable](https://lovable.dev/projects/6df48f83-9679-4b3a-9100-22ae918ea39c) and click on Share -> Publish.
+Google Gemini
 
-## Can I connect a custom domain to my Lovable project?
+Google Cloud Translation API
 
-Yes, you can!
+Installation
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+Clone the repo:
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+git clone [https://github.com/your-username/smart-voyage.git](https://github.com/your-username/smart-voyage.git)
+cd smart-voyage
+
+
+Setup the Backend:
+
+Navigate to the backend directory:
+
+cd backend
+npm install
+
+
+Create a .env file in the backend directory and add your secret keys. This is critical for security.
+
+GEMINI_API_KEY=YOUR_GEMINI_API_KEY_HERE
+GOOGLE_TRANSLATE_API_KEY=YOUR_TRANSLATE_API_KEY_HERE
+
+
+Start the backend server:
+
+npm start
+
+
+Your secure backend is now running (e.g., at http://localhost:3000).
+
+Run the Frontend:
+
+Open the frontend directory.
+
+Simply open the index.html file in your favorite web browser. The frontend JavaScript is configured to send its API requests to your local backend server.
+
+🧭 How It Works (User Flow)
+
+Sign Up & Profile: A new user signs up. On their first login, they are redirected to a mandatory "Complete Your Profile" page.
+
+Choose Journey: The user selects "New Journey" (they pick the destination) or "Surprise Journey" (AI picks for them).
+
+Add Travelers: The user specifies "How many travelers?" and the form dynamically creates fields to enter each person's Name and Age.
+
+Generate Plan: The user submits the form. The frontend sends this data to the backend.
+
+AI Magic: The backend securely calls the Gemini API to generate a JSON object containing:
+
+The itinerary text.
+
+The latitude and longitude of the destination.
+
+The weather-based luggage checklist.
+
+View Results: The frontend receives this JSON. It displays the itinerary text, populates the luggage list, and then uses the coordinates to initialize the Leaflet.js map, centering it on the destination and adding a marker.
+
+Translate: The user can click the language switcher (e.g., to "Hindi"), which securely translates all text on the page.
+
+🔮 Future Roadmap
+
+This project has a strong foundation, but the next steps are even more exciting:
+
+[ ] RAG Integration: Implement Retrieval-Augmented Generation (RAG) to feed the AI with real-time, factual data (e.g., specific museum opening times, current hotel prices, local event schedules) for hyper-realistic and verifiable itineraries.
+
+[ ] Save & Share Itineraries: Allow users to save their favorite generated itineraries to their profile and share them with friends via a unique link.
+
+[ ] Profile-Aware AI: Train the AI to consider the user's profile (age, nationality, language) when suggesting destinations or activities.
