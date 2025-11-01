@@ -1,0 +1,242 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Indian-inspired color palette */
+    --background: 35 40% 98%;
+    --foreground: 25 20% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 25 20% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 25 20% 15%;
+
+    /* Saffron orange primary */
+    --primary: 25 95% 53%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 25 95% 63%;
+
+    /* Warm neutral secondary */
+    --secondary: 35 20% 92%;
+    --secondary-foreground: 25 20% 15%;
+
+    --muted: 35 15% 90%;
+    --muted-foreground: 25 10% 45%;
+
+    /* Deep indigo accent */
+    --accent: 238 70% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    /* Golden highlight */
+    --gold: 45 100% 55%;
+    --gold-foreground: 25 20% 15%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 35 20% 88%;
+    --input: 35 20% 88%;
+    --ring: 25 95% 53%;
+
+    --radius: 0.75rem;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(25 95% 53%), hsl(45 100% 55%));
+    --gradient-hero: linear-gradient(135deg, hsl(25 95% 53% / 0.95), hsl(238 70% 50% / 0.95));
+    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%), hsl(35 40% 98%));
+    
+    /* Shadows */
+    --shadow-sm: 0 2px 8px hsl(25 95% 53% / 0.08);
+    --shadow-md: 0 4px 16px hsl(25 95% 53% / 0.12);
+    --shadow-lg: 0 8px 32px hsl(25 95% 53% / 0.15);
+    --shadow-glow: 0 0 40px hsl(25 95% 63% / 0.3);
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 25 20% 10%;
+    --foreground: 35 20% 95%;
+
+    --card: 25 20% 12%;
+    --card-foreground: 35 20% 95%;
+
+    --popover: 25 20% 12%;
+    --popover-foreground: 35 20% 95%;
+
+    --primary: 25 95% 53%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 25 95% 63%;
+
+    --secondary: 25 15% 18%;
+    --secondary-foreground: 35 20% 95%;
+
+    --muted: 25 15% 18%;
+    --muted-foreground: 35 10% 60%;
+
+    --accent: 238 70% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --gold: 45 100% 55%;
+    --gold-foreground: 25 20% 10%;
+
+    --destructive: 0 62.8% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 25 15% 20%;
+    --input: 25 15% 20%;
+    --ring: 25 95% 53%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  /* Smooth scroll */
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  /* Animations */
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.6s ease-out;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.4s ease-out;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  /* Gradient text */
+  .gradient-text {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Card hover effects */
+  .hover-lift {
+    transition: var(--transition-smooth);
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  /* Glow effect */
+  .glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  /* Form helper text */
+  .form-hint {
+    display: block;
+    color: hsl(var(--muted-foreground));
+    font-size: 0.8rem;
+    margin-top: 0.25rem;
+  }
+
+  /* Traveler card styling */
+  .traveler-card {
+    margin-top: 15px;
+    padding: 16px;
+    border: 1px solid hsl(var(--border));
+    border-radius: 8px;
+    background: hsl(var(--card));
+  }
+
+  /* Traveler input row - flex layout */
+  .traveler-input-row {
+    display: flex;
+    gap: 10px;
+  }
+
+  /* Input group - flex column layout */
+  .input-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}

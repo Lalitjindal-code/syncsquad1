@@ -1,0 +1,10 @@
+project_id = "ortdeyewsbcxlcszdlxm"
+
+[functions.generate-itinerary]
+verify_jwt = false
+
+[functions.find-surprise]
+verify_jwt = false
+
+[functions.chatbot]
+verify_jwt = false
